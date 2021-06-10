@@ -80,8 +80,6 @@ app.post('/src/edit/:id', function (req, res) {
   })
 })
 
-
-
   app.get('/search', (req, res) => {
     client.query('SELECT * FROM Users WHERE Name LIKE ‘%C%’', (error, rows) => {
       if (error) throw error;

@@ -44,17 +44,16 @@
         }
     </style>
 </head>
-
 <body>
     <h1>User List</h1>
     <a href="/src/insert">Add UserInfo</a>
-<hr/>
-    
-    <form action="search" method="get" class="search-form">
-        <input type="text" class="search-bar" name="query" placeholder="검색어를 입력하세요.">
-        <input type="submit" class="search-button" value="Search" >
-    </form>
-    <div>
+    <hr />
+    <h3>You can search OS and Version with Name</h3>
+    <form action="get">
+        <input type="text" id="searchName" placeholder="searchName" value="<%= data.Name %>">
+        <input type="submit" value="search" >
+    </form> 
+    <br>
     <table border="1">
         <tr>
             <th>DELETE</th>
@@ -85,6 +84,4 @@
     </table>
 </div>
 </body>
-</body>
-
 </html>
