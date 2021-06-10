@@ -1,0 +1,22 @@
+{
+  "name": "dsu-node-basic-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevMinGeonPark/dsu-node-basic-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevMinGeonPark/dsu-node-basic-crud/issues"
+  },
+  "homepage": "https://github.com/DevMinGeonPark/dsu-node-basic-crud#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
