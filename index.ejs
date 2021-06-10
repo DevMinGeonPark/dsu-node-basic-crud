@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>User List</h1>
+    <a href="/src/insert">Add UserInfo</a>
+<hr/>
     <table border="1">
         <tr>
             <th>DELETE</th>
@@ -21,10 +23,10 @@
             <tr>
               <td><a href="/delete/<%= item.id%>">DELETE</a></td>
               <td><a href="/edit/<%= item.id %>">EDIT</a></td>
-              <td><%= item.id %></td>
-              <td><%= item.name %></td>
-              <td><%= item.os %></td>
-              <td><%= item.version %></td>
+              <td><strong><%= item.id %></strong></td>
+              <td><strong><%= item.Name %></strong></td>
+              <td><strong><%= item.OS %></strong></td>
+              <td><strong><%= item.Version %></strong></td>
             </tr>
             <% }); %>
           </table>

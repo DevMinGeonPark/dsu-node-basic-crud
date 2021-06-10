@@ -40,8 +40,10 @@ app.get('/delete/:id', function (req, res) {
   
 })
 
-app.get('/insert', function (req, res) {
-
+app.get('/src/insert', function (req, res) {
+    fs.readFile('src/insert.html', 'utf8', function (err, data) {
+      res.send(data)
+    })
 })
 
 app.post('/insert', function (req, res) {
@@ -55,22 +57,3 @@ app.get('/edit/:id', function (req, res) {
 app.post('/edit/:id', function (req, res) {
 
 })
-
-// const mysql = require('mysql');
-// var client = mysql.createConnection({
-//     host     : '146.56.163.210',
-//     user     : 'ukisgod',
-//     password : 'ukisgod12@@',
-//     database : 'ukisgod'
-//   });
-// client.connect();
-
-// client.query('SELECT * FROM Users', function (err, result, fields) {
-//   if (err) {
-//     console.log('DB Query incorrect');
-//   } else {
-//     console.log(result);
-//   }
-// })
-
-// client.end();
