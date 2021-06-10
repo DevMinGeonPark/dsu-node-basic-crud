@@ -49,8 +49,8 @@
     <a href="/src/insert">Add UserInfo</a>
     <hr />
     <h3>You can search OS and Version with Name</h3>
-    <form action="get">
-        <input type="text" id="searchName" placeholder="searchName" value="<%= data.Name %>">
+    <form action="/serach-query" method="post">
+        <input type="text" name="Name" id="searchName" placeholder="searchName" value="<%= data.Name %>">
         <input type="submit" value="search" >
     </form> 
     <br>
@@ -58,7 +58,6 @@
         <tr>
             <th>DELETE</th>
             <th>EDIT</th>
-            <th>id</th>
             <th>Name</th>
             <th>OS</th>
             <th>Version</th>

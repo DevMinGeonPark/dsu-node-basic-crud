@@ -80,10 +80,17 @@ app.post('/src/edit/:id', function (req, res) {
   })
 })
 
-  app.get('/search', (req, res) => {
-    client.query('SELECT * FROM Users WHERE Name LIKE ‘%C%’', (error, rows) => {
-      if (error) throw error;
-      console.log('User info is: ', rows);
-      res.send(rows);
-    });
-  });
+app.post('/serach-query', function (req, res) {
+    var word = `select * from Users where Name like '%${req.body.Name}%'`
+    fs.readFile('src/search.ejs', 'utf8', function (err, data) {
+      client.query(word, function (err, results) {
+        if (err) {
+          res.send(err)
+        } else {
+          res.send(ejs.render(data, {
+            data: results
+          }))
+        }
+      })
+    })
+  })
