@@ -46,10 +46,17 @@ app.get('/src/insert', function (req, res) {
     })
 })
 
-app.post('/insert', function (req, res) {
-
+app.post('/src/insert', function (req, res) {
+    const body = req.body
+  
+    client.query('insert into Users (Name, OS, Version) values (?, ?, ?);', [
+      body.Name,
+      body.OS,
+      body.Version
+    ], function() {
+      res.redirect('/')
+    })
 })
-
 app.get('/edit/:id', function (req, res) {
 
 })
