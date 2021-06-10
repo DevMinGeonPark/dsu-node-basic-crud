@@ -6,10 +6,10 @@ const mysql = require('mysql');
 
 // dotenv package를 통해 .env에 값을 저장하고 활용
 const client = mysql.createConnection({
-  host : process.env.DB_HOST,
-  user: process.env.DB_USER, 
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
   password: process.env.DB_PW,
-  database: process.env.DB 
+  database: process.env.DB
 })
 
 const app = express();
@@ -37,27 +37,27 @@ app.get('/', function (req, res) {
 })
 
 app.get('/delete/:id', function (req, res) {
-  client.query('delete from Users where id=?', [req.params.id], function() {
+  client.query('delete from Users where id=?', [req.params.id], function () {
     res.redirect('/')
   })
 })
 
 app.get('/src/insert', function (req, res) {
-    fs.readFile('src/insert.html', 'utf8', function (err, data) {
-      res.send(data)
-    })
+  fs.readFile('src/insert.html', 'utf8', function (err, data) {
+    res.send(data)
+  })
 })
 
 app.post('/src/insert', function (req, res) {
-    const body = req.body;
-  
-    client.query('insert into Users (Name, OS, Version) values (?, ?, ?);', [
-      body.Name,
-      body.OS,
-      body.Version
-    ], function() {
-      res.redirect('/')
-    })
+  const body = req.body;
+
+  client.query('insert into Users (Name, OS, Version) values (?, ?, ?);', [
+    body.Name,
+    body.OS,
+    body.Version
+  ], function () {
+    res.redirect('/')
+  })
 })
 app.get('/src/edit/:id', function (req, res) {
   fs.readFile('src/edit.ejs', 'utf8', function (err, data) {
@@ -72,9 +72,19 @@ app.get('/src/edit/:id', function (req, res) {
 app.post('/src/edit/:id', function (req, res) {
   const body = req.body;
 
-  client.query('update Users Set Name=?, OS=?, Version=? where id=? ' ,[
+  client.query('update Users Set Name=?, OS=?, Version=? where id=? ', [
     body.Name, body.OS, body.Version, req.params.id
-  ], function() {
+  ], function () {
     res.redirect('/')
   })
 })
+
+// test code
+var sql = "select * from Users where Name like %Ch%";
+client.query(sql, (err, rows, field) => {
+  if(err) {
+    console.log(err);
+  }else{
+    console.log('rows', rows);
+  }
+});

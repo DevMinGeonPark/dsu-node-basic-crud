@@ -5,23 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dsu-node-basic-crud</title>
+    <title>data search</title>
 </head>
 
 <body>
-    <h1>User List</h1>
-    <a href="/src/insert">Add UserInfo</a>
-    <hr />
-    <h3>You can search OS and Version with Name</h3>
-    <!-- <form action="post">
-        <input type="text" id="searchName" placeholder="searchName" value="<%= data.Name %>">
-        <input type="submit" value="search" onclick="location.href='/src/search/ <%= item.Name%>'">
-    </form> -->
-    <br>
     <table border="1">
         <tr>
-            <th>DELETE</th>
-            <th>EDIT</th>
             <th>id</th>
             <th>Name</th>
             <th>OS</th>
@@ -29,8 +18,6 @@
         </tr>
         <% data.forEach(function (item, index) { %>
             <tr>
-                <td><a href="/delete/<%= item.id%>">DELETE</a></td>
-                <td><a href="/src/edit/<%= item.id %>">EDIT</a></td>
                 <td><strong>
                         <%= item.id %>
                     </strong></td>
