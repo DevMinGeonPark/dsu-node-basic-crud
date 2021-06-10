@@ -37,7 +37,9 @@ app.get('/', function (req, res) {
 })
 
 app.get('/delete/:id', function (req, res) {
-  
+  client.query('delete from UserInfo where id=?', [req.params.id], function() {
+    res.redirect('/')
+  })
 })
 
 app.get('/src/insert', function (req, res) {
