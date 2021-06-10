@@ -1,14 +1,16 @@
+require("dotenv").config();
 const express = require('express');
 const fs = require('fs');
 const ejs = require('ejs');
 const mysql = require('mysql');
 
-var client = mysql.createConnection({
-    host     : '146.56.163.210',
-    user     : 'ukisgod',
-    password : 'ukisgod12@@',
-    database : 'ukisgod'
-  });
+// dotenv package를 통해 .env에 값을 저장하고 활용
+const client = mysql.createConnection({
+  host : process.env.DB_HOST,
+  user: process.env.DB_USER, 
+  password: process.env.DB_PW,
+  database: process.env.DB 
+})
 
 const app = express()
 
