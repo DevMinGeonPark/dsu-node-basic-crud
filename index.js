@@ -1,15 +1,74 @@
-const mysql = require('mysql')
+const express = require('express');
+const fs = require('fs');
+const ejs = require('ejs');
+const mysql = require('mysql');
 
-const client = mysql.createConnection({
-  user: 'ukisgod',
-  password: 'ukisgod12@@',
-  database: 'ukisgod'
+var client = mysql.createConnection({
+    host     : '146.56.163.210',
+    user     : 'ukisgod',
+    password : 'ukisgod12@@',
+    database : 'ukisgod'
+  });
+
+const app = express()
+
+app.use(express.urlencoded({
+  extended: false
+}))
+
+app.listen(8080, function () {
+  console.log('Server is running at : http://127.0.0.1:8080')
 })
 
-client.query('SELECT * FROM AlbumList', function (err, result, fields) {
-  if (err) {
-    console.log('DB Query incorrect')
-  } else {
-    console.log(result)
-  }
+app.get('/', function (req, res) {
+  fs.readFile('index.ejs', 'utf8', function (err, data) {
+    client.query('select * from Users', function (err, results) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.send(ejs.render(data, {
+          data: results
+        }))
+      }
+    })
+  })
 })
+
+app.get('/delete/:id', function (req, res) {
+  
+})
+
+app.get('/insert', function (req, res) {
+
+})
+
+app.post('/insert', function (req, res) {
+
+})
+
+app.get('/edit/:id', function (req, res) {
+
+})
+
+app.post('/edit/:id', function (req, res) {
+
+})
+
+// const mysql = require('mysql');
+// var client = mysql.createConnection({
+//     host     : '146.56.163.210',
+//     user     : 'ukisgod',
+//     password : 'ukisgod12@@',
+//     database : 'ukisgod'
+//   });
+// client.connect();
+
+// client.query('SELECT * FROM Users', function (err, result, fields) {
+//   if (err) {
+//     console.log('DB Query incorrect');
+//   } else {
+//     console.log(result);
+//   }
+// })
+
+// client.end();
