@@ -5,11 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dsu-node-basic-crud</title>
+    <style>
+        .search {
+          display: grid;
+          padding-bottom: 0px;
+        }
+        
+        .search-bar {
+          border: 1px solid #009900;
+          float: left;
+          font-size: 13px;
+          margin: 10px 0 0 0px;
+          padding: 5px;
+          width: 140px;
+        }
+        
+        .search-button {
+          background: #009900;
+          border: 1px solid #009900;
+          border-left: none; /* Prevent double borders */
+          color: white;
+          cursor: pointer;	
+          float: left;
+          font-size: 13px;
+          margin: 10px 0 0px 0;
+          width: 60px;
+          padding: 5px;
+        }
+        
+        .search-button:hover {
+              background: #006600;
+        }
+        
+        .search-form {
+          height: 45px;
+          margin: 10px 0 10px 0;
+        }
+    </style>
 </head>
 <body>
     <h1>User List</h1>
     <a href="/src/insert">Add UserInfo</a>
 <hr/>
+    
+    <form action="search" method="get" class="search-form">
+        <input type="text" class="search-bar" name="query" placeholder="검색어를 입력하세요.">
+        <input type="submit" class="search-button" value="Search" >
+    </form>
+    <div>
     <table border="1">
         <tr>
             <th>DELETE</th>
@@ -32,5 +75,6 @@
           </table>
         </body>
     </table>
+</div>
 </body>
 </html>

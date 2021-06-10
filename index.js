@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("sanitize");
 const express = require('express');
 const fs = require('fs');
 const ejs = require('ejs');
@@ -66,3 +67,4 @@ app.get('/edit/:id', function (req, res) {
 app.post('/edit/:id', function (req, res) {
 
 })
+
