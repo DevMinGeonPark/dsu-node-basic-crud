@@ -1,63 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=IE">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dsu-node-basic-crud</title>
-    <style>
-        .search {
-          display: grid;
-          padding-bottom: 0px;
-        }
-        
-        .search-bar {
-          border: 1px solid #009900;
-          float: left;
-          font-size: 13px;
-          margin: 10px 0 0 0px;
-          padding: 5px;
-          width: 140px;
-        }
-        
-        .search-button {
-          background: #009900;
-          border: 1px solid #009900;
-          border-left: none; /* Prevent double borders */
-          color: white;
-          cursor: pointer;	
-          float: left;
-          font-size: 13px;
-          margin: 10px 0 0px 0;
-          width: 60px;
-          padding: 5px;
-        }
-        
-        .search-button:hover {
-              background: #006600;
-        }
-        
-        .search-form {
-          height: 45px;
-          margin: 10px 0 10px 0;
-        }
-    </style>
 </head>
 <body>
     <h1>User List</h1>
     <a href="/src/insert">Add UserInfo</a>
     <hr />
     <h3>You can search OS and Version with Name</h3>
-    <form action="/serach-query" method="post">
+    <form action="/search-query" method="post">
         <input type="text" name="Name" id="searchName" placeholder="searchName" value="<%= data.Name %>">
-        <input type="submit" value="search" >
-    </form> 
+        <input type="submit" value="search">
+    </form>
     <br>
     <table border="1">
         <tr>
             <th>DELETE</th>
             <th>EDIT</th>
+            <th>ID</th>
             <th>Name</th>
             <th>OS</th>
             <th>Version</th>
@@ -81,6 +44,7 @@
             </tr>
             <% }); %>
     </table>
-</div>
+    </div>
 </body>
+
 </html>
