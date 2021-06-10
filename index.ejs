@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=IE">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dsu-node-basic-crud</title>
 </head>
@@ -16,11 +15,16 @@
         <input  type="text" name="Name" id="searchName" placeholder="searchName" value="<%= data.Name %>">
         <input  type="submit" value="search" >
     </form> 
+    <form action="/search-query" method="post">
+        <input type="text" name="Name" id="searchName" placeholder="searchName" value="<%= data.Name %>">
+        <input type="submit" value="search">
+    </form>
     <br>
     <table border="1">
         <tr>
             <th>DELETE</th>
             <th>EDIT</th>
+            <th>ID</th>
             <th>Name</th>
             <th>OS</th>
             <th>Version</th>
@@ -44,6 +48,7 @@
             </tr>
             <% }); %>
     </table>
-</div>
+    </div>
 </body>
+
 </html>
