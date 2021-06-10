@@ -7,16 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dsu-node-basic-crud</title>
 </head>
-
 <body>
     <h1>User List</h1>
     <a href="/src/insert">Add UserInfo</a>
     <hr />
     <h3>You can search OS and Version with Name</h3>
-    <!-- <form action="post">
+    <form action="get">
         <input type="text" id="searchName" placeholder="searchName" value="<%= data.Name %>">
-        <input type="submit" value="search" onclick="location.href='/src/search/ <%= item.Name%>'">
-    </form> -->
+        <input type="submit" value="search" >
+    </form> 
     <br>
     <table border="1">
         <tr>
@@ -47,6 +46,4 @@
             <% }); %>
     </table>
 </body>
-</body>
-
 </html>

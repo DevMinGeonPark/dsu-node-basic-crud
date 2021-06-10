@@ -79,12 +79,28 @@ app.post('/src/edit/:id', function (req, res) {
   })
 })
 
+app.get('/:Name', function (req, res) {
+  // var word = reqs.query();
+  var word = req.params.Name;
+  fs.readFile('src/search.ejs', 'utf8', function (err, data) {
+    client.query("select * from Users where Name like "+'%'+word+'%', function (err, results) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.send(ejs.render(data, {
+          data: results
+        }))
+      }
+    })
+  })
+})
+
 // test code
-var sql = "select * from Users where Name like %Ch%";
-client.query(sql, (err, rows, field) => {
-  if(err) {
-    console.log(err);
-  }else{
-    console.log('rows', rows);
-  }
-});
+// var sql = "select * from Users where Name like '%Ch%'";
+// client.query(sql, (err, rows, field) => {
+//   if(err) {
+//     console.log(err);
+//   }else{
+//     console.log('rows', rows);
+//   }
+// });
